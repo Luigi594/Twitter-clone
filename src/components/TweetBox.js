@@ -11,10 +11,10 @@ function TweetBox() {
             <TweetBoxInput>
                 <Avatar src="https://is4-ssl.mzstatic.com/image/thumb/Music118/v4/82/54/ae/8254ae74-339b-de39-4d00-53e5868cfb06/source/600x600bb.jpg"/>
                 <input type="text" placeholder="What's up?'" />
-                {/* <input type="file" placeholder="Enter an image"/> */}
             </TweetBoxInput>
+                <input className='tweetBox_imageInput' type="text" placeholder="Optional: Enter an image"/>
 
-            <Button>Tweet</Button>
+            <Button className='tweetBox_button'>Tweet</Button>
         </form>
     </TweetBoxContainer>
   )
@@ -32,6 +32,27 @@ const TweetBoxContainer = styled.div`
 
         display: flex;
         flex-direction: column;
+    }
+
+    > form > .tweetBox_button{
+
+        background-color: var(--twitter-color) !important;
+        border: none !important;
+        color: white !important;
+        font-weight: 900 !important;
+        text-transform: inherit !important;
+        border-radius: 30px !important;
+        width: 80px;
+        height: 40px !important;
+        margin-top: 20px !important;
+        margin-left: auto !important;
+    }
+
+    > form > .tweetBox_imageInput{
+
+        border: none;
+        outline: none;
+        padding: 10px;
     }
 `;
 

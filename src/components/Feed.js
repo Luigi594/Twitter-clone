@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Post from './Post';
 import TweetBox from './TweetBox';
 
 function Feed() {
@@ -15,6 +16,7 @@ function Feed() {
         <TweetBox />
 
         {/** Post reusable component */}
+        <Post />
     </FeedContainer>
   )
 }
