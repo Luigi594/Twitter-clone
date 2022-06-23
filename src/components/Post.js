@@ -6,6 +6,7 @@ import ChatBubbleOutlineOutlinedIcon from '@mui/icons-material/ChatBubbleOutline
 import RepeatIcon from '@mui/icons-material/Repeat';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FileUploadOutlinedIcon from '@mui/icons-material/FileUploadOutlined';
+import IconButton from '@mui/material/IconButton';
 
 function Post({ displayName, userName, verified, text, image, avatar }) {
   return (
@@ -29,13 +30,24 @@ function Post({ displayName, userName, verified, text, image, avatar }) {
             <p>I challenge you to build a Twitter Clone</p>
           </PostHeaderDescription>
 
-          <img src="https://i.pinimg.com/originals/fd/80/e8/fd80e89f23663dc95baacfdb1f9c6bb9.gif" alt="" />
+          <img src="https://res.cloudinary.com/codier/image/upload/v1530614273/jqxbwxmnrkjq0mxhnvjn.png" alt="" />
 
           <PostFooter>
-            <ChatBubbleOutlineOutlinedIcon font-size="small"/>
-            <RepeatIcon font-size="small"/>
-            <FavoriteBorderIcon font-size="small"/>
-            <FileUploadOutlinedIcon font-size="small"/>
+            <IconButton>
+              <ChatBubbleOutlineOutlinedIcon font-size="small"/>
+            </IconButton>
+
+            <IconButton>
+              <RepeatIcon font-size="small"/> 
+            </IconButton>
+
+            <IconButton>
+              <FavoriteBorderIcon font-size="small"/>
+            </IconButton>
+
+            <IconButton>
+              <FileUploadOutlinedIcon font-size="small"/>
+            </IconButton>
           </PostFooter>
         </PostBody>
     </PostContainer>
@@ -50,12 +62,7 @@ const PostContainer = styled.div`
   align-items: flex-start;
   border-bottom: 1px solid var(--twitter-background);
   padding-bottom: 10px;
-
-  > img{
-
-    border-radius: 20px;
-    width: 100%;
-  }
+  max-width: 650px;
 `;
 
 const PostAvatar = styled.div`
@@ -65,7 +72,13 @@ const PostAvatar = styled.div`
 const PostBody = styled.div`
 
   flex: 1;
-  padding: 10px;
+  padding: 10px;  
+
+  > img{
+
+    border-radius: 20px;
+    width: 100%;
+  }
 `;
 
 const PostHeaderText = styled.div`

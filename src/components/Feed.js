@@ -16,7 +16,12 @@ function Feed() {
         <TweetBox />
 
         {/** Post reusable component */}
-        <Post />
+        <Post displayName={"Sonny Sangha"} 
+        userName="sssangha" 
+        verified={true} 
+        text="It's working!"
+        avatar={"https://is4-ssl.mzstatic.com/image/thumb/Music118/v4/82/54/ae/8254ae74-339b-de39-4d00-53e5868cfb06/source/600x600bb.jpg"}
+        image={"https://res.cloudinary.com/codier/image/upload/v1530614273/jqxbwxmnrkjq0mxhnvjn.png"} />
     </FeedContainer>
   )
 }
