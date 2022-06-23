@@ -10,10 +10,11 @@ function TweetBox() {
         <form>
             <TweetBoxInput>
                 <Avatar src="https://is4-ssl.mzstatic.com/image/thumb/Music118/v4/82/54/ae/8254ae74-339b-de39-4d00-53e5868cfb06/source/600x600bb.jpg"/>
-                <input type="text" placeholder="What's up?'" />
+                <input type="text" placeholder="What's happening?'" />
             </TweetBoxInput>
-                <input className='tweetBox_imageInput' type="text" placeholder="Optional: Enter an image"/>
 
+                <input className='tweetBox_imageInput' type="text" placeholder="Optional: Enter an image"/>
+                
             <Button className='tweetBox_button'>Tweet</Button>
         </form>
     </TweetBoxContainer>

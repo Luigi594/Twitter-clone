@@ -49,6 +49,8 @@ const SidebarContainer = styled.div`
   padding-right: 20px;
   
   > .twitter_icon{
+
+    cursor: pointer;
     color: var(--twitter-color) !important;
     font-size: 30px !important;
     margin-left: 20px;
