@@ -1,9 +1,31 @@
-import React from 'react';
+import React,{ useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Post from './Post';
 import TweetBox from './TweetBox';
+import db from '../firebase';
+import { onSnapshot, collection, query, orderBy } from 'firebase/firestore';
+import FlipMove from 'react-flip-move';
 
 function Feed() {
+
+  const [posts, setPost] = useState([]);
+
+  useEffect(() => {
+
+    const reference = collection(db, "posts");
+    const Query = query(reference, orderBy("timestamp", "desc"));
+
+    onSnapshot(Query, (snapshot) => {
+
+        // map all the documents on the snapshot to the posts hook
+        setPost(snapshot.docs.map((doc) => ({
+            
+            id: doc.id,
+            data: doc.data()
+        })))
+    })
+  },[])
+
   return (
     <FeedContainer>
         
@@ -16,12 +38,22 @@ function Feed() {
         <TweetBox />
 
         {/** Post reusable component */}
-        <Post displayName={"Sonny Sangha"} 
-        userName="sssangha" 
-        verified={true} 
-        text="It's working!"
-        avatar={"https://is4-ssl.mzstatic.com/image/thumb/Music118/v4/82/54/ae/8254ae74-339b-de39-4d00-53e5868cfb06/source/600x600bb.jpg"}
-        image={"https://res.cloudinary.com/codier/image/upload/v1530614273/jqxbwxmnrkjq0mxhnvjn.png"} />
+        <FlipMove>
+            {posts.map(({ id, data: { displayName, userName, verified, text, avatar, image } }) => (
+
+                <Post
+                
+                key={id}
+                displayName={displayName}
+                userName={userName}
+                verified={verified}
+                text={text}
+                avatar={avatar}
+                image={image}
+                />
+            ))}
+        </FlipMove>
+
     </FeedContainer>
   )
 }

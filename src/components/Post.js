@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import styled from 'styled-components';
 import Avatar from '@mui/material/Avatar';
 import VerifiedIcon from '@mui/icons-material/Verified';
@@ -8,29 +8,29 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FileUploadOutlinedIcon from '@mui/icons-material/FileUploadOutlined';
 import IconButton from '@mui/material/IconButton';
 
-function Post({ displayName, userName, verified, text, image, avatar }) {
+const Post = forwardRef(({ displayName, userName, verified, text, image, avatar }, ref) => {
   return (
-    <PostContainer>
+    <PostContainer ref={ref}>
         <PostAvatar>
-          <Avatar src="https://is4-ssl.mzstatic.com/image/thumb/Music118/v4/82/54/ae/8254ae74-339b-de39-4d00-53e5868cfb06/source/600x600bb.jpg"/>
+          <Avatar src={avatar} />
         </PostAvatar>
 
         <PostBody>
           <PostHeaderText>
             <h3>
-              Rafael Qazi {" "}
+              {displayName} {" "}
               <span className='post_headerSpecial'>
-                <VerifiedIcon className='post_badge'/>
-                @cleverqazi
+                {verified && <VerifiedIcon className='post_badge'/>}
+                @{userName}
               </span>
             </h3>
           </PostHeaderText>
 
           <PostHeaderDescription>
-            <p>I challenge you to build a Twitter Clone</p>
+            <p>{text}</p>
           </PostHeaderDescription>
 
-          <img src="https://res.cloudinary.com/codier/image/upload/v1530614273/jqxbwxmnrkjq0mxhnvjn.png" alt="" />
+          <img src={image} alt="" />
 
           <PostFooter>
             <IconButton>
@@ -52,7 +52,7 @@ function Post({ displayName, userName, verified, text, image, avatar }) {
         </PostBody>
     </PostContainer>
   )
-}
+});
 
 export default Post;
 
